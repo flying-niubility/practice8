@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>迷你校园信息中心 - 自习室查询</title>
+  <!-- Bootstrap 5 CSS（CDN 引入） -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <!-- 自定义 CSS -->
+  <link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+  <!-- 导航栏：四个入口 -->
+  <nav class="navbar navbar-expand-lg navbar-dark campus-navbar sticky-top">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center" href="index.html">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-mortarboard-fill me-2" viewBox="0 0 16 16">
+          <path d="M8.211 2.047a.5.5 0 0 0-.422 0l-7.5 3.5a.5.5 0 0 0 .025.917l7.5 3a.5.5 0 0 0 .372 0L14 7.14V13a1 1 0 0 0-1 1v.5h-1v-3a.5.5 0 0 0-1 0v3H5.5a.5.5 0 0 0 0 1h9a.5.5 0 0 0 .5-.5V14a1 1 0 0 0-1-1V6.39l1.686-.674a.5.5 0 0 0 .025-.917l-7.5-3.5Z"/>
+        </svg>
+        迷你校园信息中心
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav"
+              aria-controls="mainNav" aria-expanded="false" aria-label="切换导航">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link" href="index.html">首页</a></li>
+          <li class="nav-item"><a class="nav-link active" aria-current="page" href="rooms.html">自习室</a></li>
+          <li class="nav-item"><a class="nav-link" href="stats.html">统计</a></li>
+          <li class="nav-item"><a class="nav-link" href="three-d/scene.html">校园三维</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container my-4 my-lg-5">
+    <h1 class="h3 mb-3">自习室查询</h1>
+    <p class="text-muted">按楼层与开放状态即时筛选自习室，数据为写死在 JS 数组中的示例数据。</p>
+
+    <!-- 筛选区（复用课堂五的筛选模式） -->
+    <section class="card border-0 shadow-sm mb-4">
+      <div class="card-body">
+        <div class="row g-3 align-items-end">
+          <div class="col-sm-5 col-md-4">
+            <label for="floorFilter" class="form-label">楼层</label>
+            <select id="floorFilter" class="form-select">
+              <option value="all">全部楼层</option>
+              <option value="1">1层</option>
+              <option value="2">2层</option>
+              <option value="3">3层</option>
+              <option value="4">4层</option>
+            </select>
+          </div>
+          <div class="col-sm-5 col-md-4">
+            <label for="statusFilter" class="form-label">开放状态</label>
+            <select id="statusFilter" class="form-select">
+              <option value="all">全部状态</option>
+              <option value="open">开放中</option>
+              <option value="closing">即将关闭</option>
+              <option value="closed">已闭馆</option>
+              <option value="maintenance">维护中</option>
+            </select>
+          </div>
+          <div class="col-sm-2 col-md-4">
+            <button id="resetFilter" type="button" class="btn btn-outline-secondary w-sm-auto w-100">重置筛选</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 结果统计与列表 -->
+    <div class="d-flex justify-content-between align-items-center mb-3">
+      <h2 class="h5 mb-0">查询结果</h2>
+      <span id="resultCount" class="badge text-bg-primary fs-6">共 0 间</span>
+    </div>
+    <div id="roomList" class="row g-3" aria-live="polite"></div>
+  </main>
+
+  <footer class="campus-footer text-white-50 py-3 mt-auto">
+    <div class="container d-flex flex-column flex-md-row justify-content-between gap-2 small">
+      <span>迷你版校园公共信息与数据展示中心（课堂综合复现案例）</span>
+      <span>数据来源：写死于 js/rooms.js 的示例数据</span>
+    </div>
+  </footer>
+
+  <!-- Bootstrap 5 JS Bundle（CDN 引入） -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  <!-- 自习室筛选脚本 -->
+  <script src="js/rooms.js"></script>
+</body>
+</html>
