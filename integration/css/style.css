@@ -1,0 +1,118 @@
+/* 迷你校园信息中心 - 自定义样式 */
+
+:root {
+  --campus-primary: #1f5fa8;
+  --campus-dark: #163a66;
+  --campus-bg: #f4f7fb;
+}
+
+body {
+  background-color: var(--campus-bg);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* 导航栏 */
+.campus-navbar {
+  background: linear-gradient(90deg, var(--campus-dark), var(--campus-primary));
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.campus-navbar .nav-link {
+  font-weight: 500;
+  padding-left: 0.9rem !important;
+  padding-right: 0.9rem !important;
+}
+
+/* 顶部横幅 */
+.campus-hero {
+  background:
+    linear-gradient(rgba(22, 58, 102, 0.82), rgba(31, 95, 168, 0.82)),
+    radial-gradient(circle at 80% 20%, #7fb2e5 0%, transparent 45%),
+    linear-gradient(135deg, #1f5fa8, #163a66);
+}
+
+/* 首页卡片 */
+.campus-card {
+  border: none;
+  border-radius: 0.75rem;
+  box-shadow: 0 3px 12px rgba(22, 58, 102, 0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.campus-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 24px rgba(22, 58, 102, 0.16);
+}
+
+.campus-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 0.6rem;
+  background-color: rgba(31, 95, 168, 0.08);
+}
+
+/* 页脚 */
+.campus-footer {
+  background-color: var(--campus-dark);
+}
+
+/* 筛选结果区 */
+.room-card {
+  border-left: 4px solid #1f5fa8;
+  transition: box-shadow 0.2s ease;
+}
+
+.room-card:hover {
+  box-shadow: 0 6px 16px rgba(22, 58, 102, 0.12);
+}
+
+/* 图表容器 */
+.chart-box {
+  background: #fff;
+  border-radius: 0.75rem;
+  box-shadow: 0 3px 12px rgba(22, 58, 102, 0.08);
+}
+
+#usageChart {
+  width: 100%;
+  height: 420px;
+}
+
+/* 断网提示条 */
+#offlineAlert {
+  display: none;
+}
+
+#offlineAlert.show {
+  display: block;
+}
+
+/* 三维场景 */
+#threeCanvasWrap {
+  position: relative;
+  width: 100%;
+  height: calc(100vh - 64px);
+  min-height: 420px;
+  background: #bfe3f5;
+}
+
+#threeCanvasWrap canvas {
+  display: block;
+}
+
+.scene-tip {
+  position: absolute;
+  left: 1rem;
+  bottom: 1rem;
+  background: rgba(22, 58, 102, 0.82);
+  color: #fff;
+  padding: 0.5rem 0.9rem;
+  border-radius: 0.5rem;
+  font-size: 0.85rem;
+  pointer-events: none;
+}
