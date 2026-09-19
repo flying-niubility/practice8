@@ -86,6 +86,9 @@ body {
 /* 断网提示条 */
 #offlineAlert {
   display: none;
+  background-color: #fff3cd;
+  color: #664d03;
+  border-bottom: 1px solid #ffecb5;
 }
 
 #offlineAlert.show {
